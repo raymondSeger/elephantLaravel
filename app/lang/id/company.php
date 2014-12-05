@@ -1,0 +1,30 @@
+<?php
+
+return array(
+	'create_new' => 'Tambahkan Perusahaan Baru',
+	'company_name' => 'Nama Perusahaan',
+	'phone' => 'Nomor Telepon',
+	'email' => 'Email',
+	'address' => 'Alamat',
+	'update_company' => 'Memperbarui Perusahaan',
+	'all_company' => 'Semua Perusahaan',
+	'created_at' => 'Dibuat tanggal',
+	'company' => 'Perusahaan',
+	'action' => 'Aksi',
+	'your_information' => 'Informasi Anda',
+	'no_company' => 'Anda belum memiliki perusahaan pada akun anda, silakan buat',
+	'request' => 'Permintaan untuk bergabung dengan perusahaan',
+	'already_have' => 'Perusahaan Anda sudah terdaftar?',
+	'your_company' => 'Anda dari perusahaan apa?',
+	'thanks_for_request' => 'Anda telah memiliki permintaan untuk bergabung dengan perusahaan, harap tunggu dalam 1 x 24 Jam. Terima kasih.',
+	// added for navbar
+    'join_create' => 'Bergabung/Membuat sebuah perusahaan',
+    'my_company' => 'Perusahan Saya',
+    'new' => 'Buat Perusahaan Baru',
+    'created_new' => ' membuat sebuah perusahaan baru',
+    'updated_company' => ' telah memperbarui informasi perusahaan ',
+    'deleted_company' => ' telah menghapus perusahaan ',
+    'yes' => 'Sudah',
+    'no' => 'Belum',
+    'information' => 'Informasi',
+);

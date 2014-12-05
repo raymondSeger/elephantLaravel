@@ -1,0 +1,32 @@
+<?php
+
+return array(
+	'create_new' => 'Insert New User',
+	'username' => 'Username',
+	'company' => 'Company',
+	'user_role' => 'User Role',
+	'name' => 'Name',
+	'email' => 'Email',
+	'mobile_phone' => 'Mobile Phone',
+	'land_line' => 'Land Line',
+	'language' => 'Language',
+	'change_password' => 'Change Password',
+	'old_password' => 'Old Password',
+	'password' => 'Password',
+	'password_confirmation' => 'Password Confirmation',
+	'update_profile' => 'Update Profile',
+	'all_user' => 'All Users',
+	'date_created' => 'Date Created',
+	'confirmed' => 'Confirmed',
+	'subscribed' => 'Subscribe Email',
+	'action' => 'Action',
+	'unsubscribe' => 'Unsubscribe',
+	'unsubscribed' => 'You will not receive email notification from us again, update your profile if you want to subscribe again. Thank you',
+    //added for navbar
+    'my_homepage' => 'My Homepage',
+    'edit' => 'Edit my profile',
+    'logout' => 'Logout',
+    'user' => 'User',
+    'all_users' => 'All Users',
+    'new' => 'Create New User',
+);

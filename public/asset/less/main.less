@@ -1,0 +1,257 @@
+//Import element
+@import "elements.less";
+
+// Set the variables for the CSS
+@default-blue: #25aae1;
+@default-font-family: 'titillium-light-webfont';
+@alt-font-color: #FFFFFF;
+@default-pading: 1.5em;
+@img-url: "../img/";
+
+//set the default functions
+@font-face {
+  font-family: 'titillium-light-webfont';
+  src: url('../fonts/titillium-light-webfont.eot');
+  src: url('../fonts/titillium-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/titillium-light-webfont.woff2') format('woff2'), url('../fonts/titillium-light-webfont.woff') format('woff'), url('../fonts/titillium-light-webfont.ttf') format('truetype'), url('../fonts/titillium-light-webfont.svg#titillium-light-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//the code
+body {
+  padding-top: 50px; //for the navbar
+  font-family: @default-font-family;
+  position: relative; //for the scrollspy
+
+  h1 {
+    font-weight: bold;
+    padding-bottom: @default-pading / 2;
+    padding-top: @default-pading / 2;
+  }
+}
+
+//top navbar
+#top-nav-bar {
+  .active {
+    background-color: @default-blue; //added for scrollspy
+  }
+  a {
+    background-color: transparent; //to see scrollspy
+    color: #ffffff;
+    &:hover {
+      background-color: @default-blue;
+      color: @alt-font-color;
+    }
+  }
+  // fixing the inverse-dropdown (bootstrap bug)
+  .inverse-dropdown {
+    background-color: #222;
+    border-color: #080808;
+    & > .divider {
+      background-color: #000;
+    }
+  }
+}
+
+.container-fluid {
+  padding-top: @default-pading;
+  padding-bottom: @default-pading;
+}
+
+//Carousel
+.carousel-inner {
+  background-color: @default-blue;
+  .drop-shadow(0px, 5px, 10px, 0.3);
+  div.item {
+    height: 301px;
+    color: @alt-font-color;
+  }
+  #carousel1 {
+    background: url("@{img-url}globally.png") no-repeat center;
+  }
+  #carousel2 {
+    background: url("@{img-url}about_us.png") no-repeat center;
+  }
+  #carousel3 {
+    background: url("@{img-url}support.png") no-repeat center;
+  }
+}
+
+//Why Choose us
+#whyChooseUs {
+  .drop-shadow(0px, 5px, 10px, 0.3);
+}
+
+.nav-pills {
+  a {
+    color: @default-blue;
+  }
+  li.active a {
+    background-color: @default-blue;
+    color: @alt-font-color;
+    &:hover {
+      background-color: @default-blue;
+    }
+  }
+}
+
+.btn-primary {
+  background-color: @default-blue;
+  &:hover {
+    background-color: @default-blue;
+  }
+}
+
+#parallax {
+  height: 350px;
+  background: background url("@{img-url}paralax_main_page.jpg") no-repeat center top fixed;
+  background-size: cover;
+  .drop-shadow(0px, -10px, 10px, 0.3);
+  .container-fluid {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+#team {
+  .drop-shadow(0px, -10px, 10px, 0.3);
+  overflow: auto;
+}
+
+#socialIcons span {
+  color: black;
+}
+
+footer {
+  height: 50px;
+  background-color: black;
+  div {
+    color: @alt-font-color;
+    top: 25%;
+    position: relative;
+  }
+}
+
+#header-bg {
+  .drop-shadow(0px, 5px, 10px, 0.3);
+  background-color: @default-blue ;
+  .container-fluid{
+    height: 325px;
+  }
+  #about_us_background {
+    background: url("@{img-url}transparent_about_us.png") no-repeat center;
+  }
+  #globally_background {
+    background: url("@{img-url}transparent_globally.png") no-repeat center;
+  }
+  #support_background {
+    background: url("@{img-url}transparent_support.png") no-repeat center;
+  }
+  #web_security_background {
+    background: url("@{img-url}bg_web_security.png") no-repeat center;
+  }
+  #web_design_background {
+    background: url("@{img-url}web_design_redesign.png") no-repeat center;
+  }
+  #online_visibility_background {
+    background: url("@{img-url}bg_online_visibility_redesign.png") no-repeat center;
+  }
+  #web_hosting_background {
+    background: url("@{img-url}webhosting_redesign.png") no-repeat center;
+  }
+  #telephone_system_background {
+    background: url("@{img-url}telephone_system_redesign.png") no-repeat center;
+  }
+  #career_background {
+    background: url("@{img-url}hiring_redesign.png") no-repeat center;
+  }
+}
+
+.clear {clear:both;}
+
+.login-form form {
+  padding:20px;
+  width:250px;
+  background:#fff;
+}
+.login-form input[type="text"] {
+  margin-bottom:20px;
+}
+.login-form h2{
+  margin: -5px 0 0 0;
+  padding: 10px 20px;
+  background: #25AAE1;
+  color: #fff;
+  font-size: 25px;
+}
+.login-form a {
+  color:#333 !important;
+}
+.login-form a:hover {
+  background-color: transparent !important;
+}
+
+#have_corporate {display:none;}
+
+/*MESSAGE LOOKS LIKE CHAT*/
+.message-container li {list-style:none;}
+.message-left {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 15px;
+  background: #5cb85c;
+  color:#fff;
+  margin-bottom: 25px;
+  margin-left: 0;
+  border-radius:5px;
+}
+.message-left:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #5cb85c;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+.message-right {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 15px;
+  background: #428bca;
+  color:#fff;
+  margin-bottom: 25px;
+  border-radius:5px;
+}
+.message-right:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: -15px;
+  border-style: solid;
+  border-width: 10px 0px 10px 15px;
+  border-color: transparent #428bca;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+.message-info {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0 10px;
+}
+.message-info span { font-size:12px;font-style: italic; }
+.new-message { border:1px solid #ddd; }
+.portfolio-author { background: #D0D0D0;padding: 10px 20px;font-style: italic;font-size: 0.9em;color: #FFFFFF; }
+@media (max-width: 768px) { 
+  .login-form form {
+    width: 100% !important;
+  } 
+}

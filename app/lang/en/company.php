@@ -1,0 +1,30 @@
+<?php
+
+return array(
+	'create_new' => 'Insert New Company',
+	'company_name' => 'Company Name',
+	'phone' => 'Phone',
+	'email' => 'Email',
+	'address' => 'Address',
+	'update_company' => 'Update Company',
+	'all_company' => 'All Companies',
+	'created_at' => 'Created at',
+	'company' => 'Company',
+	'action' => 'Action',
+	'your_information' => 'Your Information',
+	'no_company' => 'You don\'t have any company, please create one first',
+	'request' => 'Request Company',
+	'already_have' => 'Already Have Company?',
+	'your_company' => 'What is your company?',
+	'thanks_for_request' => 'You have already have Company Request, please wait 24 Hours. Thank you.',
+    // added for navbar
+    'join_create' => 'Join/Create a company',
+    'my_company' => 'My Company',
+    'new' => 'Create New Company',
+    'created_new' => 'has created new company',
+    'updated_company' => ' has updated information of company ',
+    'deleted_company' => ' has deleted company ',
+    'yes' => 'Already',
+    'no' => 'Not yet',
+    'information' => 'Information',
+);

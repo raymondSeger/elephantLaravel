@@ -1,0 +1,237 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+@font-face {
+  font-family: 'titillium-light-webfont';
+  src: url('../fonts/titillium-light-webfont.eot');
+  src: url('../fonts/titillium-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/titillium-light-webfont.woff2') format('woff2'), url('../fonts/titillium-light-webfont.woff') format('woff'), url('../fonts/titillium-light-webfont.ttf') format('truetype'), url('../fonts/titillium-light-webfont.svg#titillium-light-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  padding-top: 50px;
+  font-family: 'titillium-light-webfont';
+  position: relative;
+}
+body h1 {
+  font-weight: bold;
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
+}
+#top-nav-bar .active {
+  background-color: #25aae1;
+}
+#top-nav-bar a {
+  background-color: transparent;
+  color: #ffffff;
+}
+#top-nav-bar a:hover {
+  background-color: #25aae1;
+  color: #ffffff;
+}
+#top-nav-bar .inverse-dropdown {
+  background-color: #222;
+  border-color: #080808;
+}
+#top-nav-bar .inverse-dropdown > .divider {
+  background-color: #000;
+}
+.container-fluid {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+.carousel-inner {
+  background-color: #25aae1;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.carousel-inner div.item {
+  height: 301px;
+  color: #ffffff;
+}
+.carousel-inner #carousel1 {
+  background: url("../img/globally.png") no-repeat center;
+}
+.carousel-inner #carousel2 {
+  background: url("../img/about_us.png") no-repeat center;
+}
+.carousel-inner #carousel3 {
+  background: url("../img/support.png") no-repeat center;
+}
+#whyChooseUs {
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.nav-pills a {
+  color: #25aae1;
+}
+.nav-pills li.active a {
+  background-color: #25aae1;
+  color: #ffffff;
+}
+.nav-pills li.active a:hover {
+  background-color: #25aae1;
+}
+.btn-primary {
+  background-color: #25aae1;
+}
+.btn-primary:hover {
+  background-color: #25aae1;
+}
+#parallax {
+  height: 350px;
+  background: background url("../img/paralax_main_page.jpg") no-repeat center top fixed;
+  background-size: cover;
+  -webkit-box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3);
+}
+#parallax .container-fluid {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#team {
+  -webkit-box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+#socialIcons span {
+  color: black;
+}
+footer {
+  height: 50px;
+  background-color: black;
+}
+footer div {
+  color: #ffffff;
+  top: 25%;
+  position: relative;
+}
+#header-bg {
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  background-color: #25aae1;
+}
+#header-bg .container-fluid {
+  height: 325px;
+}
+#header-bg #about_us_background {
+  background: url("../img/transparent_about_us.png") no-repeat center;
+}
+#header-bg #globally_background {
+  background: url("../img/transparent_globally.png") no-repeat center;
+}
+#header-bg #support_background {
+  background: url("../img/transparent_support.png") no-repeat center;
+}
+#header-bg #web_security_background {
+  background: url("../img/bg_web_security.png") no-repeat center;
+}
+#header-bg #web_design_background {
+  background: url("../img/web_design_redesign.png") no-repeat center;
+}
+#header-bg #online_visibility_background {
+  background: url("../img/bg_online_visibility_redesign.png") no-repeat center;
+}
+#header-bg #web_hosting_background {
+  background: url("../img/webhosting_redesign.png") no-repeat center;
+}
+#header-bg #telephone_system_background {
+  background: url("../img/telephone_system_redesign.png") no-repeat center;
+}
+.clear {
+  clear: both;
+}
+.login-form form {
+  padding: 20px;
+  width: 250px;
+}
+.login-form input[type="text"] {
+  margin-bottom: 20px;
+}
+.login-form h2 {
+  margin: -5px 0 0 0;
+  padding: 10px 20px;
+  background: #25AAE1;
+  color: #fff;
+  font-size: 25px;
+}
+.login-form a {
+  color: #333 !important;
+}
+.login-form a:hover {
+  background-color: transparent !important;
+}
+#have_corporate {
+  display: none;
+}
+/*MESSAGE LOOKS LIKE CHAT*/
+.message-container li {
+  list-style: none;
+}
+.message-left {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 15px;
+  background: #5cb85c;
+  color: #fff;
+  margin-bottom: 25px;
+  margin-left: 0;
+  border-radius: 5px;
+}
+.message-left:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #5cb85c;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+.message-right {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 15px;
+  background: #428bca;
+  color: #fff;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+.message-right:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: -15px;
+  border-style: solid;
+  border-width: 10px 0px 10px 15px;
+  border-color: transparent #428bca;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+.message-info {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0 10px;
+}
+.message-info span {
+  font-size: 12px;
+  font-style: italic;
+}
+.new-message {
+  border: 1px solid #ddd;
+}
