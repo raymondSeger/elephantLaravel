@@ -1,7 +1,4 @@
 <?php
-
-use ElephantIO\Client,
-    ElephantIO\Engine\SocketIO\Version1X;
     
 /*
 |--------------------------------------------------------------------------
@@ -83,35 +80,6 @@ Route::group(
     Route::post('/user/corporate/request_corporate', 'CorporateController@store_request_corporate');
     Route::get('/homepage', array('before' => 'auth','uses' => 'HomeController@indexBackend'));
     Route::any('/user/unsubscribed/{id}', 'UserController@unsubscribed');
-
-    //elephant.io 
-    Route::post('/clientReceiver', function()
-    {
-        $client = new Client(new Version1X('http://192.168.10.10:9900'));
-
-        $client->initialize();
-
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            switch($_POST['command']) {
-
-                case 'private message FROM CLIENT':
-                    $chat['userIDDestination'] = $_POST['userIDDestination'];
-                    $chat['theMessage'] = $_POST['theMessage'];
-                    $chat['delay'] = $_POST['delay'];
-                    $chat['username'] = $_POST['username'];
-                    $client->emit('private message FROM CLIENT', $chat);
-                break;
-
-                default: 
-                break;
-            }
-
-        }
-
-        $client->close();
-    });
-
 
 });
 
