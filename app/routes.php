@@ -1,5 +1,8 @@
 <?php
 
+use ElephantIO\Client,
+    ElephantIO\Engine\SocketIO\Version1X;
+    
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -81,25 +84,33 @@ Route::group(
     Route::get('/homepage', array('before' => 'auth','uses' => 'HomeController@indexBackend'));
     Route::any('/user/unsubscribed/{id}', 'UserController@unsubscribed');
 
+    //elephant.io 
+    Route::post('/clientReceiver', function()
+    {
+        $client = new Client(new Version1X('http://192.168.10.10:9900'));
 
-    /**
-    Route::get('/test_email', function () {
-        $email = [
-            'h4' => 'Hello admin,',
-            'TopText' => 'You have a new message from ' . 'Name' . ': <a href=mailto:"' . 'Email' . '">' . 'Email' . '</a>',
-            'MiddleText' => 'The message is as per follow:',
-            'Link' => 'Click Here',
-            'BottomText' => '(the message)',
-        ];
+        $client->initialize();
 
-        return View::make('email.content.contact')
-            ->with('h4', $email['h4'])
-            ->with('TopText', $email['TopText'])
-            ->with('MiddleText', $email['MiddleText'])
-            ->with('Link', $email['Link'])
-            ->with('BottomText', $email['BottomText']);
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            switch($_POST['command']) {
+
+                case 'private message FROM CLIENT':
+                    $chat['userIDDestination'] = $_POST['userIDDestination'];
+                    $chat['theMessage'] = $_POST['theMessage'];
+                    $chat['delay'] = $_POST['delay'];
+                    $chat['username'] = $_POST['username'];
+                    $client->emit('private message FROM CLIENT', $chat);
+                break;
+
+                default: 
+                break;
+            }
+
+        }
+
+        $client->close();
     });
-    **/
 
 
 });
