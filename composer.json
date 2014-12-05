@@ -10,7 +10,8 @@
         "mcamara/laravel-localization": "0.14.*",
 		"barryvdh/laravel-debugbar": "~1.7",
         "mitch/hashids": "1.x",
-        "guzzlehttp/guzzle": "~4.0"
+        "guzzlehttp/guzzle": "~4.0",
+        "wisembly/elephant.io": "~3.0"
 	},
 	"autoload": {
 		"classmap": [
