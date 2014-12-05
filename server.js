@@ -19,7 +19,7 @@ io.on('connection', function(socket){
 
 	// Get data from CLIENT and send back data to ONLY that client
 	// And then SEND data to ONLY one CLIENT
-	socket.on('giveUserComputerData FROM CLIENT', function(user_browser_user_agent) {
+	/*socket.on('giveUserComputerData FROM CLIENT', function(user_browser_user_agent) {
 
 		// Storing the user data to the array, the key is the user's session
 		users_connected_user_agents[socket.id] = user_browser_user_agent;
@@ -86,16 +86,23 @@ io.on('connection', function(socket){
 
         // console.log(data);
 
-    });
+    });*/
+
+	socket.on('userdata',function(data, inputan){
+		//console.log('Nama : ' + input.username + ' Message : ' + input.theMessage);
+		//io.emit('Nama : ' + input.username + ' Message : ' + input.theMessage);
+		
+		console.log(data);
+	});
 
 	// User disconnected
 	socket.on('disconnect', function(){
-		console.log('user with ID of ' + socket.id + ' is disconnected, his browser is ' + users_connected_user_agents[socket.id]);
+		//console.log('user with ID of ' + socket.id + ' is disconnected, his browser is ' + users_connected_user_agents[socket.id]);
 		// Send data to ALL CLIENT
-		io.emit('user disconnected FROM SERVER', socket.id, users_connected_user_agents[socket.id]);
+		//io.emit('user disconnected FROM SERVER', socket.id, users_connected_user_agents[socket.id]);
 		delete users_connected_user_agents[socket.id];
 		// DEBUG
-		console.log('DEBUG, current array content is: '.underline.red);
+		//console.log('DEBUG, current array content is: '.underline.red);
 		console.log(users_connected_user_agents);
 	});
 

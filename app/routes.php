@@ -14,6 +14,8 @@
 use ElephantIO\Client,
     ElephantIO\Engine\SocketIO\Version1X;
 
+Route::post('/send_msg', 'ChatController@send_msg');    
+
 Route::get('/chat', function(){
     $user = Auth::User();
     return View::make('chat')->with('user', $user);

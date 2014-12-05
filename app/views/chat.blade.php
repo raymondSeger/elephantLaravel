@@ -16,11 +16,10 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form id="form1" method="post" action="{{ url('/clientReceiver') }}">
-      <input id="usernameDestination" name="usernameDestination" autocomplete="off" placeholder="Username Destination" />
+    <form id="form1" method="post" action="{{ url('/send_msg') }}">
+      <input id="username" name="username" autocomplete="off" placeholder="Username Destination" />
       <input id="theMessage" name="theMessage" autocomplete="off" placeholder="The Message" />
       <input id="delay" name="delay" autocomplete="off" placeholder="the delay before the message is sent" />
-      <input type="hidden" id="username" name="username" value="{{ $user->username }}">
       <button>Send</button>
     </form>
 
@@ -104,28 +103,7 @@
       // Give the server the user's username
       socket.emit('giveUsername FROM CLIENT', $('#username').val());
 
-      // Sent form data to server
-      $('form').submit(function(e) {
-        e.preventDefault();
-
-        var jsonObject = {
-          'command': 'private message to username FROM CLIENT',
-          'usernameDestination': $('#usernameDestination').val(),
-          'theMessage': $('#theMessage').val(),
-          'delay': $('#delay').val(),
-          'username': $('#username').val()
-        };
-
-        var destinationPHPPage = $(this).prop('action');
-
-        $.post( destinationPHPPage, jsonObject, function(){ 
-          console.log('sent data to /clientReceiver');
-        }  );
-
-        $('#theMessage').val('');
-        return false;
-      });
-
+      
       socket.on('connect', function(){
         console.log('connected to server!');
       });
