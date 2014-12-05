@@ -11,6 +11,53 @@
 |
 */
 
+use ElephantIO\Client,
+    ElephantIO\Engine\SocketIO\Version1X;
+
+Route::get('/chat', function(){
+    $user = Auth::User();
+    return View::make('chat')->with('user', $user);
+});
+
+Route::post('/clientReceiver', function(){
+
+    $usernameDestination = Input::get('usernameDestination');
+    $theMessage = Input::get('theMessage');
+    $delay = Input::get('delay');
+    $username = Input::get('username');
+
+    $client = new Client(new Version1X('http://192.168.10.10:9900'));
+
+    $client->initialize();
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        switch($_POST['command']) {
+
+            case 'private message FROM CLIENT':
+                $chat['usernameDestination'] = $_POST['usernameDestination'];
+                $chat['theMessage'] = $_POST['theMessage'];
+                $chat['delay'] = $_POST['delay'];
+                $chat['username'] = $_POST['username'];
+                $client->emit('private message FROM CLIENT', $chat);
+                break;
+            case 'private message to username FROM CLIENT':
+                $chat['usernameDestination']= $_POST['usernameDestination'];
+                $chat['theMessage'] = $_POST['theMessage'];
+                $chat['delay'] = $_POST['delay'];
+                $chat['username'] = $_POST['username'];
+                $client->emit('private message to username FROM CLIENT', $chat);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    $client->close();
+
+});
+
 
 Route::group(
     array(

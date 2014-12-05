@@ -1,8 +1,5 @@
 <?php
 
-use ElephantIO\Client,
-    ElephantIO\Engine\SocketIO\Version1X;
-
 /**
  * UsersController Class
  *
@@ -119,17 +116,6 @@ class UsersController extends Controller
             if(!Auth::Guest() && Auth::User()->lang != NULL){
                 LaravelLocalization::setLocale(Auth::User()->lang);
             }
-
-            //this is elephant.io
-            $client = new Client(new Version1X('http://192.168.10.10:9900'));
-
-            $client->initialize();
-
-            $userdata[] = Auth::User();
-            $client->emit('userdata_client', $userdata);
-
-            $client->close();
-            //end of elephant.io
             
             return Redirect::intended('/homepage');
         } else {

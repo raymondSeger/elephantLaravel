@@ -12,6 +12,7 @@ var server = http.createServer(function(request, response){
 // Make the server into Socket IO enabled
 var io = require('socket.io').listen(server);
 var users_connected_user_agents = [];
+var users_username = [];
 
 // When there is a user that is connected
 io.on('connection', function(socket){	
@@ -30,6 +31,18 @@ io.on('connection', function(socket){
 		// SEND data to ONLY one CLIENT
 		io.to(socket.id).emit('giveUserHisBrowserAgent FROM SERVER', user_browser_user_agent, socket.id);
 	});
+
+    socket.on('giveUsername FROM CLIENT', function(username){
+        users_username[socket.id] = username;
+        // DEBUG
+        console.log('DEBUG, current array content is: '.underline.red);
+        console.log(users_username);
+        console.log('user connected! ' + ' the session ID is: ' + socket.id + ' the username is ' + username);
+
+        // SEND data to ONLY one CLIENT
+        io.to(socket.id).emit('giveUserHisUsername FROM SERVER', username, socket.id);
+    });
+
 
 	socket.on('private message FROM CLIENT', function (data) {
 		if(data.username != null || data.username != '') {
@@ -52,21 +65,38 @@ io.on('connection', function(socket){
 
 	});
 
-	//this is for test get data userdata
-	socket.on('userdata_client',function(data){
-		console.log('Username : ' + data[0].username + ' | email : ' + data[0].email + ' | phone : ' + data[0].phone_mobile + ' | socket id : ' + socket.id + ' is login');
-	});
+    socket.on('private message to username FROM CLIENT', function(data){
+        var usernameDestination = data.usernameDestination;
+        var theMessage = data.theMessage;
+        var delay = data.delay;
+        var usernameThatSentTheMessage = data.username;
+
+        if(usernameThatSentTheMessage != null || usernameThatSentTheMessage != '') {
+            console.log('Username: ' + usernameThatSentTheMessage + ' with UserID ' + socket.id + ' wanted to send message to ' + usernameDestination + ' , the content is ' + theMessage + ' , delay is ' + delay);
+        } else {
+            console.log('UserID ' + socket.id + ' wanted to send message to ' + usernameDestination + ' , the content is ' + theMessage + ' , delay is ' + delay);
+        }
+
+        console.log(users_username.length);
+
+        // SEND data to ONLY one CLIENT, and to THAT usernameDestination
+        for(var i = 0; i < users_username.length;i++){
+            console.log(users_username);
+        }
+
+        // console.log(data);
+
+    });
 
 	// User disconnected
 	socket.on('disconnect', function(){
-		//console.log('user with ID of ' + socket.id + ' is disconnected, his browser is ' + users_connected_user_agents[socket.id]);
+		console.log('user with ID of ' + socket.id + ' is disconnected, his browser is ' + users_connected_user_agents[socket.id]);
 		// Send data to ALL CLIENT
-		//io.emit('user disconnected FROM SERVER', socket.id, users_connected_user_agents[socket.id]);
-		//delete users_connected_user_agents[socket.id];
+		io.emit('user disconnected FROM SERVER', socket.id, users_connected_user_agents[socket.id]);
+		delete users_connected_user_agents[socket.id];
 		// DEBUG
-		//console.log('DEBUG, current array content is: '.underline.red); 
-		//console.log(users_connected_user_agents);
-		console.log('Disconnected');
+		console.log('DEBUG, current array content is: '.underline.red);
+		console.log(users_connected_user_agents);
 	});
 
 });
