@@ -159,6 +159,16 @@
         }
       });
 
+      // Listen to server
+      socket.on('private message to username FROM SERVER', function(usernameDestination, theMessage, delay, usernameThatSentTheMessage) {
+          if(usernameThatSentTheMessage == null || usernameThatSentTheMessage == '') {
+            $('#messages').append($('<li>').text('user with username of  ' + usernameDestination + ' got a message. The content is: ' + theMessage + ' , delay is: ' + delay + ' . It was sent by guest'));
+          } else {
+            $('#messages').append($('<li>').text('user with username of  ' + usernameDestination + ' got a message. The content is: ' + theMessage + ' , delay is: ' + delay + ' . It was sent by ' + usernameThatSentTheMessage));
+          }
+      });
+
+
     </script>
   </body>
 </html>
