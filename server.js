@@ -33,10 +33,10 @@ io.on('connection', function(socket){
 	});
 
     socket.on('giveUsername FROM CLIENT', function(username){
-        users_username[socket.id] = username;
+        users_username[username] = socket.id;
         // DEBUG
         console.log('DEBUG, current array content is: '.underline.red);
-        console.log(users_username);
+        console.log(username);
         console.log('user connected! ' + ' the session ID is: ' + socket.id + ' the username is ' + username);
 
         // SEND data to ONLY one CLIENT
@@ -77,14 +77,20 @@ io.on('connection', function(socket){
             console.log('UserID ' + socket.id + ' wanted to send message to ' + usernameDestination + ' , the content is ' + theMessage + ' , delay is ' + delay);
         }
 
-        console.log(users_username.length);
-
         // SEND data to ONLY one CLIENT, and to THAT usernameDestination
-        for(var i = 0; i < users_username.length;i++){
-            console.log(users_username);
-        }
+        var user_id_of_the_destination = users_username[usernameDestination];
+        console.log(user_id_of_the_destination);
 
-        // console.log(data);
+        // SEND data to ONLY one CLIENT
+        if(delay == 0 || delay == null) {
+            setTimeout(function(){
+                io.to(user_id_of_the_destination).emit('private message to username FROM SERVER', usernameDestination, theMessage, 0, usernameThatSentTheMessage);
+            }, 0);
+        } else {
+            setTimeout(function(){
+                io.to(user_id_of_the_destination).emit('private message to username FROM SERVER', usernameDestination, theMessage, delay, usernameThatSentTheMessage);
+            }, delay * 1000);
+        }
 
     });*/
 
